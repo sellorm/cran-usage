@@ -1,0 +1,104 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+Install duck db
+
+```{r}
+# install.packages("duckdb")
+```
+
+Connect to the database
+
+```{r}
+library(DBI)
+library(dplyr)
+con <- dbConnect(duckdb::duckdb(), dbdir="cran-downloads.ddb", read_only=FALSE)
+```
+
+
+Read in the csv file and cram it into the database
+
+
+```{r}
+# x <- readr::read_csv("~/Downloads/2020-12-17.csv")
+# dbWriteTable(con, "downloads", x)
+# dbWriteTable(con, "downloads", x) # if appending
+```
+
+show the table schema
+
+```{r}
+dbGetQuery(con, "pragma show('downloads');")
+
+```
+
+
+Show package downloads for the day
+
+```{r}
+tbl(con, "downloads") %>% 
+  select(package) %>% 
+  group_by(package) %>% 
+  count() %>% 
+  filter(package == "dplyr")
+
+```
+
+Show the underlying SQL
+
+```{r}
+tbl(con, "downloads") %>% 
+  select(package) %>% 
+  group_by(package) %>% 
+  count() %>% 
+  filter(package == "dplyr") %>%
+  show_query()
+
+```
+
+Top package downloads
+
+```{r}
+tbl(con, "downloads") %>% select(package) %>% group_by(package) %>% count() %>% arrange(desc(n)) %>% head(20)
+
+```
+
+report by os
+
+```{r}
+tbl(con, "downloads") %>% select(r_os, r_arch, r_version) %>% group_by(r_os, r_arch, r_version) %>% count() %>% arrange(desc(n))
+
+```
+
+OS Only
+
+```{r}
+tbl(con, "downloads") %>% select(r_os) %>% group_by(r_os) %>% count() %>% arrange(desc(n))
+```
+
+OS and architecture
+
+```{r}
+tbl(con, "downloads") %>% select(r_os, r_arch) %>% group_by(r_os, r_arch) %>% count() %>% arrange(desc(n))
+```
+
+R Version
+
+```{r}
+tbl(con, "downloads") %>% select(r_version) %>% group_by(r_version) %>% count() %>% arrange(desc(n))
+```
+
+
+
+
+Total number of records:
+
+```{r}
+dbGetQuery(con, "select count(*) from downloads")
+```
+
+
