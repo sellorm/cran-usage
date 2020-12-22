@@ -8,7 +8,7 @@ on:
 name: rmarkdown-render
 
 jobs:
-  pkgdown:
+  rmdrender:
     runs-on: ubuntu-20.04
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
