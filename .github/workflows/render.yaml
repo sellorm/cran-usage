@@ -2,12 +2,14 @@
 on:
   schedule:
   - cron: "0 4 * * *"
+  
+  workflow_dispatch:
 
 name: rmarkdown-render
 
 jobs:
   pkgdown:
-    runs-on: ubuntu-focal
+    runs-on: ubuntu-20.04
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -18,7 +20,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
 
       - name: install linux deps
-        run: make linux-deps
+        run: make focal-deps
 
       - name: render the rmarkdown doc
         run: make docs
