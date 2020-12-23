@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 # directory control
 
-daily_rmd <- "docs/cran-usage.Rmd"
+daily_rmd <- "docs/cran-usage.html"
 
 main_index <- "docs/index.html"
 
