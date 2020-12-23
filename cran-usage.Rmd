@@ -14,11 +14,7 @@ options(scipen=999)
 
 <details>
 
-<summary>
-
-Get and read the log
-
-</summary>
+<summary>Get and read the log</summary>
 
 Get and read the log file.
 
@@ -36,9 +32,9 @@ cranlog <- read.csv(gzfile(filename))
 
 </details>
 
-### Yesterday, there were `r format(length(cranlog$ip_id), big.mark=",")` distinct package downloads and `r format(length(unique(cranlog$ip_id)), big.mark=",")` unique users on `r yesterday`.
+### Yesterday (`r yesterday`), there were `r format(length(cranlog$ip_id), big.mark=",")` distinct package downloads and `r format(length(unique(cranlog$ip_id)), big.mark=",")` unique users on cran.rstudio.com.
 
-------------------------------------------------------------------------
+---
 
 # By R version
 
