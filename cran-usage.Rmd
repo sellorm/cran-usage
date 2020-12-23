@@ -11,8 +11,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 options(scipen=999)
 ```
+
 <details>
-    <summary>Get and read the log</summary>
+
+<summary>
+
+Get and read the log
+
+</summary>
 
 Get and read the log file.
 
@@ -27,19 +33,18 @@ if ( !file.exists(filename) ){
 }
 cranlog <- read.csv(gzfile(filename))
 ```
-</details>
 
+</details>
 
 ### Yesterday, there were `r format(length(cranlog$ip_id), big.mark=",")` distinct package downloads and `r format(length(unique(cranlog$ip_id)), big.mark=",")` unique users on `r yesterday`.
 
----
+------------------------------------------------------------------------
 
 # By R version
 
 ```{r r_version, fig.width=10}
 barplot(table(cranlog$r_version), las = 2, cex.names = 1.3)
 ```
-
 
 # By OS
 
@@ -51,8 +56,8 @@ barplot(table(r_os))
 
 # By Architecture
 
-````{r by_arch, fig.width=10}
+```{r by_arch, fig.width=10}
 barplot(table(cranlog$r_arch), cex.names = .8)
 ```
 
-Another [@sellorm](https://twitter.com/sellorm) rough cut.
+Another half-baked [@sellorm](https://twitter.com/sellorm) rough cut.
