@@ -19,6 +19,9 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
+      - name: install linux deps
+        run: make focal-deps
+
       - name: render the rmarkdown doc
         run: make docs
 
