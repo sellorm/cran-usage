@@ -1,6 +1,5 @@
 ---
 title: CRAN Usage
-author: Mark Sellors
 date: "`r Sys.Date()`"
 output:
   html_document:
