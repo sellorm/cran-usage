@@ -25,7 +25,11 @@ jobs:
       - name: render the rmarkdown doc
         run: make docs
 
-      # Runs a set of commands using the runners shell
+      - name: git config
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "gh-actions committer"
+      
       - name: Push the changes back to the repo
         run: |
           git add -f docs/index.html
