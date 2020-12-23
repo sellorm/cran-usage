@@ -34,4 +34,4 @@ jobs:
         run: |
           git add -f docs/index.html
           git commit -am "Automated GitHub action commit"
-          git push --force --set-upstream origin netlify
+          git push --force --set-upstream origin main
