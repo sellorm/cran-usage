@@ -5,6 +5,6 @@ focal-deps:
 
 docs: cran-usage.Rmd
 	R -e 'rmarkdown::render("cran-usage.Rmd", output_file="cran-usage.html", output_dir="docs")'
-  Rscript dir-control.R
+	Rscript dir-control.R
 
 .PHONY: docs focal-deps
