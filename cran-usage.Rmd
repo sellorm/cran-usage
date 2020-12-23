@@ -13,9 +13,7 @@ options(scipen=999)
 
 <details>
 
-<summary>Get and read the log</summary>
-
-Get and read the log file.
+<summary>Get and read the log - show/hide code</summary>
 
 ```{r get_log}
 yesterday <- Sys.Date()-1
@@ -55,4 +53,4 @@ barplot(table(r_os))
 barplot(table(cranlog$r_arch), cex.names = .8)
 ```
 
-Another half-baked [@sellorm](https://twitter.com/sellorm) rough cut.
+Another half-baked [sellorm](https://twitter.com/sellorm) rough cut.
