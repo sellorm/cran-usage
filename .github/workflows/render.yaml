@@ -19,14 +19,8 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
-      - name: install linux deps
-        run: make focal-deps
-
       - name: render the rmarkdown doc
         run: make docs
-
-      - name: Install package
-        run: R CMD INSTALL .
 
       # Runs a set of commands using the runners shell
       - name: Push the changes back to the repo
