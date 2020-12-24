@@ -55,7 +55,9 @@ barplot(table(cranlog$r_arch), cex.names = .8)
 
 # By Country
 
-```{r by_arch, fig.width=10}
+Uses two letter ISO country code.
+
+```{r by_country, fig.width=10}
 barplot(table(cranlog$country), cex.names = .8)
 ```
 
