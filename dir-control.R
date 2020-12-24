@@ -25,4 +25,4 @@ target_file <- paste0(path, "/index.html")
 
 file.rename(daily_rmd, target_file)
 
-file.symlink(target_file, main_index)
+file.link(target_file, main_index)
