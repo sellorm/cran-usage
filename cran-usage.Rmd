@@ -63,5 +63,10 @@ US downloads of `r table(cranlog$country[cranlog$country == "US"])`, dwarf other
 country_data <- table(cranlog$country[cranlog$country != "US"])
 barplot(country_data[country_data > 10000], las = 2, cex.names = .9)
 ```
+Or if you'd prefer a straight up top 20, here it is:
+
+```{r country_top20}
+head(sort(table(cranlog$country), decreasing = T), 20)
+```
 
 Another half-baked [sellorm](https://twitter.com/sellorm) rough cut.
