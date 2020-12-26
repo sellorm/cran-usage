@@ -57,8 +57,11 @@ barplot(table(cranlog$r_arch), cex.names = .8)
 
 Uses two letter ISO country code.
 
+US downloads of `r table(cranlog$country[cranlog$country == "US"])`, dwarf other countries and are therefore excluded from the chart for clarity. We also drop all the countries with less than 10,000 downloads.
+
 ```{r by_country, fig.width=10}
-barplot(table(cranlog$country), cex.names = .8)
+country_data <- table(cranlog$country[cranlog$country != "US"])
+barplot(country_data[country_data > 10000], las = 2, cex.names = .9)
 ```
 
 Another half-baked [sellorm](https://twitter.com/sellorm) rough cut.
