@@ -16,8 +16,8 @@ options(scipen=999)
 <summary>Get and read the log - show/hide code</summary>
 
 ```{r get_log}
-yesterday <- format(Sys.Date()-1, "%Y")
-year <- format(Sys.time(), "%Y")
+yesterday <- Sys.Date()-1
+year <- format(Sys.Date()-1, "%Y")
 url <- paste0('http://cran-logs.rstudio.com/', year, '/', yesterday, '.csv.gz')
 filename <- paste0(yesterday, '.csv.gz')
 if ( !file.exists(filename) ){
