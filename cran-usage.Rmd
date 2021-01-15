@@ -8,7 +8,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-options(scipen=999)
+options(scipen = 999)
 ```
 
 <details>
@@ -16,11 +16,11 @@ options(scipen=999)
 <summary>Get and read the log - show/hide code</summary>
 
 ```{r get_log}
-yesterday <- Sys.Date()-1
-year <- format(Sys.Date()-1, "%Y")
-url <- paste0('http://cran-logs.rstudio.com/', year, '/', yesterday, '.csv.gz')
-filename <- paste0(yesterday, '.csv.gz')
-if ( !file.exists(filename) ){
+yesterday <- Sys.Date() - 1
+year <- format(Sys.Date() - 1, "%Y")
+url <- paste0("http://cran-logs.rstudio.com/", year, "/", yesterday, ".csv.gz")
+filename <- paste0(yesterday, ".csv.gz")
+if (!file.exists(filename)) {
   cat(paste0("Downloading: ", filename))
   download.file(url, destfile = filename)
 }
